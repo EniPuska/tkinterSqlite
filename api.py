@@ -44,5 +44,4 @@ def update(ID, title, author, year, isbn):
     connection.commit()
     connection.close()
 
-connection()   
-print(viewBooks())
+connection() 
