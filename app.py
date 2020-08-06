@@ -1,13 +1,46 @@
-"""
-A program that stores this book information
-Title, Author
-Year ISBN
-User can:
-View all recors
-Search 
-Update
-Delete
-Close Program
-"""
-import tkinter
+from tkinter import *
+
+window = Tk()
+titleLabel = Label(window, text = "Title")
+titleLabel.grid(row = 0, column = 0)
+authorLabel = Label(window, text = "Author")
+authorLabel.grid(row = 0, column = 2)
+yearLabel = Label(window, text = "Year")
+yearLabel.grid(row = 1, column = 0)
+isbnLabel = Label(window, text = "ISBN") 
+isbnLabel.grid(row = 1, column = 2)
+titleText = StringVar()
+titleEntry = Entry(window, textvariable = titleText)
+titleEntry.grid(row = 0, column = 1)
+authorText = StringVar()
+authorEntry = Entry(window, textvariable = authorText)
+authorEntry.grid(row = 0, column = 3)
+yearText = StringVar()
+yearEntry = Entry(window, textvariable = yearText)
+yearEntry.grid(row = 1, column = 1)
+isbnText = StringVar()
+isbnEntry = Entry(window, textvariable = isbnText)
+isbnEntry.grid(row = 1, column = 3)
+
+listBox = Listbox(window, height=6, width = 35)
+listBox.grid(row = 2, column = 0, rowspan = 6, columnspan = 2)
+listScrollBar = Scrollbar(window)
+listScrollBar.grid(row = 2, column = 2, rowspan = 6)
+listBox.configure(yscrollcommand = listScrollBar.set)
+listScrollBar.configure(command = listBox.yview)
+
+viewAllButton = Button(window, text = "View All", width = 12)
+viewAllButton.grid(row = 2, column = 3)
+searchEntryButton = Button(window, text = "Search Entry", width = 12)
+searchEntryButton.grid(row = 3, column = 3)
+addEntryButton = Button(window, text = "Add Entry", width = 12)
+addEntryButton.grid(row = 4, column = 3)
+updateButton = Button(window, text = "Update Selected", width = 12)
+updateButton.grid(row = 5, column = 3)
+deleteButton = Button(window, text = "Delete Selected", width = 12)
+deleteButton.grid(row = 6, column = 3)
+closeButton = Button(window, text = "Close", width = 12)
+closeButton.grid(row = 7, column = 3)
+
+window.mainloop()
 
